@@ -6,6 +6,10 @@ import java.util.Random;
 
 public class Computer {
 
+    public List<Integer> getNums() {
+        return nums;
+    }
+
     private final List<Integer> nums;
     private final Random random = new Random();
 
