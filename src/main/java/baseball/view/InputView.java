@@ -12,14 +12,12 @@ public class InputView {
     public String inputNumber() {
         System.out.print("숫자를 입력해주세요 : ");
 
-        // TODO: 입력 유효성 검증
         return scanner.nextLine().trim();
     }
 
     public String inputRestartNumber() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
+        System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요 : ");
 
-        // TODO: 입력 유효성 검증
         return scanner.nextLine().trim();
     }
 }

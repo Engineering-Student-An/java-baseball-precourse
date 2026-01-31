@@ -1,9 +1,11 @@
 package baseball;
 
-import baseball.domain.Computer;
+import baseball.controller.BaseballController;
 
 public class Application {
+    public static void main(String[] args) {
 
-    Computer computer = new Computer();
-
+        BaseballController baseballController = new BaseballController();
+        baseballController.run();
+    }
 }
