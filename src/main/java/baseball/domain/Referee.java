@@ -1,19 +1,15 @@
 package baseball.domain;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Referee {
 
     // 해당 라운드 결과 산출
-    public Map<String, Integer> getResult(List<Integer> computer, List<Integer> input) {
+    public Result getResult(List<Integer> computer, List<Integer> input) {
+        int strike = countStrike(computer, input);
+        int ball = countBall(computer, input);
 
-        Map<String, Integer> result = new HashMap<>();
-        result.put("strike", countStrike(computer, input));
-        result.put("ball", countBall(computer, input));
-
-        return result;
+        return new Result(strike, ball);
     }
 
     // 스트라이크 갯수 세기

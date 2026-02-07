@@ -7,21 +7,25 @@ public class Validator {
 
     private Validator() {}
     private static final String ERROR_PREFIX = "[ERROR] ";
+    private static final String INVALID_INPUT = ERROR_PREFIX + "유효하지 않은 입력입니다.";
+    private static final String INVALID_RESTART_INPUT = ERROR_PREFIX + "1, 2 중 입력하세요.";
 
     // 유효한 입력인지 검증
-    public static boolean isGameNumberPossible(String input) {
-        if (validateIsNumber(input) && validateLength(input) && validateRange(input) && validateDuplicateNumber(input)) return true;
+    public static ValidationResult validateGameNumber(String input) {
+        if (validateIsNumber(input) && validateLength(input) && validateRange(input) && validateDuplicateNumber(input)) {
+            return ValidationResult.ok();
+        }
 
-        System.out.println(ERROR_PREFIX + "유효하지 않은 입력입니다.");
-        return false;
+        return ValidationResult.fail(INVALID_INPUT);
     }
 
     // 유효한 게임 재시작 입력인지 검증
-    public static boolean isRestartNumberPossible(String input) {
-        if (input.equals("1") || input.equals("2")) return true;
+    public static ValidationResult validateRestartNumber(String input) {
+        if (input.equals("1") || input.equals("2")) {
+            return ValidationResult.ok();
+        }
 
-        System.out.println(ERROR_PREFIX + "1, 2 중 입력하세요.");
-        return false;
+        return ValidationResult.fail(INVALID_RESTART_INPUT);
     }
 
     // 입력받은 숫자가 숫자가 아닌 값이 포함되어 있는지 검증

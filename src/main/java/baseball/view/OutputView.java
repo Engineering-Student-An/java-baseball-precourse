@@ -1,10 +1,15 @@
 package baseball.view;
 
+import baseball.domain.Result;
+
 public class OutputView {
 
     // 결과 출력
-    public void printResult(int strike, int ball) {
-        if(strike == 0 && ball == 0) {
+    public void printResult(Result result) {
+        int strike = result.getStrike();
+        int ball = result.getBall();
+
+        if (strike == 0 && ball == 0) {
             System.out.println("낫싱");
             return;
         }
@@ -25,5 +30,10 @@ public class OutputView {
     // 게임 종료 멘트 출력
     public void printFinish() {
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
+    }
+
+    // 에러 멘트 출력
+    public void printError(String message) {
+        System.out.println(message);
     }
 }
